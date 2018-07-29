@@ -15,9 +15,6 @@ app.get("/hello", function(req, res) {
 });
 
 if (process.env.NODE_ENV === "production") {
-  app.get("/", function(req, res) {
-    res.status(200).send({ good: "goof" });
-  });
   // Serve any static files
   app.use(express.static(path.resolve(__dirname, "client/build")));
   // Handle React routing, return all requests to React app
