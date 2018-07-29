@@ -13,10 +13,6 @@ app.get("/hello", function(req, res) {
   res.status(200).send({ connected: "Now connected" });
 });
 
-app.listen(port, function() {
-  console.log("Server running at port " + port);
-});
-
 if (process.env.NODE_ENV === "production") {
   // Serve any static files
   app.use(express.static(path.join(__dirname, "./../client/build")));
@@ -25,3 +21,7 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "./../client/build", "index.html"));
   });
 }
+
+app.listen(port, function() {
+  console.log("Server running at port " + port);
+});
