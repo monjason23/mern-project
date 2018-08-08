@@ -5,14 +5,14 @@ var app = express();
 
 var port = process.env.PORT || 4500;
 
-require("./config/config");
-
 app.use(bodyParser.json());
 app.use(cors());
 
 app.get("/hello", function(req, res) {
   res.status(200).send({ connected: "Now connected" });
 });
+
+require("./config/config");
 
 app.listen(port, function() {
   console.log("Server running at port " + port);
